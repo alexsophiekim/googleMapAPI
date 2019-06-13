@@ -256,28 +256,84 @@ function initMap(){
       google.maps.event.addDomListener(singleMarker,'click',function(){
 
         infoBox.setContent('<div><h3>'+singleMarker.markerTitle+'</h3></div>');
-        infoBox.open(map, singleMarker);
+        // infoBox.open(map, singleMarker);
 
         for (var i = 0; i < iceCreamShop.length; i++) {
           if (iceCreamShop[i].id === singleMarker.markerID) {
               var markerSingle = iceCreamShop[i];
               break;
           }
-
         }
+        $('#details').show();
         $('#details').find('h2').text(markerSingle['name']);
         $('#details').find('p').text(markerSingle['description']);
-
-        console.log(markerSingle['name']);
-        console.log(markerSingle['description']);
-        console.log(markerSingle['openingHours']);
+        $('#mon').text(markerSingle['openingHours']['monday']);
+        $('#tues').text(markerSingle['openingHours']['tuesday']);
 
 
-        singleMarker.setIcon('img/redMarker.png');
-
+        // singleMarker.setIcon('img/redMarker.png');
+        if (firstMarker) {
+            // console.log(firstMarker);
+            // console.log('first marker has a value');
+            if (secondMarker) {
+                firstMarker.setIcon('img/markerIcon.png');
+                secondMarker.setIcon('img/markerIcon.png');
+                secondMarker = null;
+                firstMarker = singleMarker;
+                singleMarker.setIcon('img/redMarker.png');
+                // console.log('second marker has a value');
+                if (directionsDisplay) {
+                    directionsDisplay.setMap(null);
+                }
+            } else {
+                // console.log('we are now setting second marker');
+                secondMarker = singleMarker;
+                singleMarker.setIcon('img/redMarker.png');
+                getDirections();
+            }
+        } else {
+            firstMarker = singleMarker;
+            singleMarker.setIcon('img/redMarker.png');
+            // console.log('we have now set first marker');
+        }
+        // console.log('marker 1 location is '+ firstMarker.position);
+        // console.log('marker 2 location is '+ secondMarker.position);
 
       });
     }
+
+    function getDirections(){
+
+      // console.log('show me the directions');
+      var directionsService = new google.maps.DirectionsService();
+      var directionsDisplay = new google.maps.DirectionsRenderer();
+
+      directionsDisplay.setMap(map);
+
+      directionsService.route({
+        origin: firstMarker.position,
+        destination: secondMarker.position,
+        travelMode: 'DRIVING'
+      }, function(response, status){
+          if (status == 'OK') {
+              // console.log(response.routes[0].legs);
+              for (var i = 0; i < response.routes[0].legs.length; i++) {
+                console.log(response.routes[0].legs[i].distance.text);
+                console.log(response.routes[0].legs[i].duration.text);
+
+              }
+              directionsDisplay.setDirections(response);
+
+          } else if (status == 'NOT_FOUND') {
+              console.log('either your origin or destination is invalid');
+          } else if (status == 'ZERO_RESULTS') {
+              alert('sorry there is no routes available')
+          }
+      })
+
+    }
+
+
 }
 
 
