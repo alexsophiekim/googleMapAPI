@@ -256,7 +256,7 @@ function initMap(){
       google.maps.event.addDomListener(singleMarker,'click',function(){
 
         infoBox.setContent('<div><h3>'+singleMarker.markerTitle+'</h3></div>');
-        // infoBox.open(map, singleMarker);
+        infoBox.open(map, singleMarker);
 
         for (var i = 0; i < iceCreamShop.length; i++) {
           if (iceCreamShop[i].id === singleMarker.markerID) {
@@ -306,7 +306,13 @@ function initMap(){
 
       // console.log('show me the directions');
       var directionsService = new google.maps.DirectionsService();
-      var directionsDisplay = new google.maps.DirectionsRenderer();
+      var directionsDisplay = new google.maps.DirectionsRenderer({
+        polylineOptions: {
+            strokeOpacity: 0.5,
+            strokeColor: 'red',
+            strokeWeight: 10
+        }
+      });
 
       directionsDisplay.setMap(map);
 
