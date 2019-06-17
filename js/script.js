@@ -301,12 +301,11 @@ function initMap(){
 
       });
     }
-
+    var directionsDisplay;
     function getDirections(){
-
       // console.log('show me the directions');
       var directionsService = new google.maps.DirectionsService();
-      var directionsDisplay = new google.maps.DirectionsRenderer({
+      directionsDisplay = new google.maps.DirectionsRenderer({
         polylineOptions: {
             strokeOpacity: 0.5,
             strokeColor: 'red',
@@ -326,7 +325,6 @@ function initMap(){
               for (var i = 0; i < response.routes[0].legs.length; i++) {
                 console.log(response.routes[0].legs[i].distance.text);
                 console.log(response.routes[0].legs[i].duration.text);
-
               }
               directionsDisplay.setDirections(response);
 
@@ -336,13 +334,26 @@ function initMap(){
               alert('sorry there is no routes available')
           }
       })
-
     }
 
+    var input = document.getElementById('location');
+    var options = {
+      componentRestrictions: {country: 'nz'}
+    };
+    var autoComplete = new google.maps.places.Autocomplete(input, options);
+    autoComplete.addListener('place_changed', function(){
+      console.log('the place has been chaged');
+      var place = autoComplete.getPlace();
+      console.log(place);
+      map.setCenter(place.geometry.location);
+      var placeInfo = document.getElementById('placeInfo');
+      placeInfo.innerHTML ='<h2>Welcome to'+place.name+'</h2>';
+      placeInfo.innerHTML +='<img src ="'+place.photos[0].getUrl()+'">';
 
+    });
 }
 
 
 
-
+//
 google.maps.event.addDomListener(window,'load',initMap)
