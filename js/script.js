@@ -129,105 +129,105 @@ var iceCreamShop =[
 ]
 
 function initMap(){
-  map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: -41.286461, lng: 174.776230},
-      zoom: 14,
-      styles: [
-            {
-              elementType: 'geometry',
-              stylers: [
-                {color: '#84817a'}
-              ]
-            },
-            {
-              elementType: 'labels.text.stroke',
-              stylers: [
-                {color: '#84817a'}
-              ]
-            },
-            {
-              elementType: 'labels.text.fill',
-              stylers: [
-                {color: '#f7f1e3'}
-              ]
-            },
-            {
-              featureType: 'administrative.locality',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#d59563'}]
-            },
-            {
-              featureType: 'poi',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#d59563'}]
-            },
-            {
-              featureType: 'poi.park',
-              elementType: 'geometry',
-              stylers: [{color: '#263c3f'}]
-            },
-            {
-              featureType: 'poi.park',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#6b9a76'}]
-            },
-            {
-              featureType: 'road',
-              elementType: 'geometry',
-              stylers: [{color: '#38414e'}]
-            },
-            {
-              featureType: 'road',
-              elementType: 'geometry.stroke',
-              stylers: [{color: '#212a37'}]
-            },
-            {
-              featureType: 'road',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#9ca5b3'}]
-            },
-            {
-              featureType: 'road.highway',
-              elementType: 'geometry',
-              stylers: [{color: '#746855'}]
-            },
-            {
-              featureType: 'road.highway',
-              elementType: 'geometry.stroke',
-              stylers: [{color: '#1f2835'}]
-            },
-            {
-              featureType: 'road.highway',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#f3d19c'}]
-            },
-            {
-              featureType: 'transit',
-              elementType: 'geometry',
-              stylers: [{color: '#2f3948'}]
-            },
-            {
-              featureType: 'transit.station',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#d59563'}]
-            },
-            {
-              featureType: 'water',
-              elementType: 'geometry',
-              stylers: [{color: '#17263c'}]
-            },
-            {
-              featureType: 'water',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#515c6d'}]
-            },
-            {
-              featureType: 'water',
-              elementType: 'labels.text.stroke',
-              stylers: [{color: '#17263c'}]
-            }
-      ]
-    });
+  // map = new google.maps.Map(document.getElementById('map'), {
+  //     center: {lat: -41.286461, lng: 174.776230},
+  //     zoom: 14,
+  //     styles: [
+  //           {
+  //             elementType: 'geometry',
+  //             stylers: [
+  //               {color: '#84817a'}
+  //             ]
+  //           },
+  //           {
+  //             elementType: 'labels.text.stroke',
+  //             stylers: [
+  //               {color: '#84817a'}
+  //             ]
+  //           },
+  //           {
+  //             elementType: 'labels.text.fill',
+  //             stylers: [
+  //               {color: '#f7f1e3'}
+  //             ]
+  //           },
+  //           {
+  //             featureType: 'administrative.locality',
+  //             elementType: 'labels.text.fill',
+  //             stylers: [{color: '#d59563'}]
+  //           },
+  //           {
+  //             featureType: 'poi',
+  //             elementType: 'labels.text.fill',
+  //             stylers: [{color: '#d59563'}]
+  //           },
+  //           {
+  //             featureType: 'poi.park',
+  //             elementType: 'geometry',
+  //             stylers: [{color: '#263c3f'}]
+  //           },
+  //           {
+  //             featureType: 'poi.park',
+  //             elementType: 'labels.text.fill',
+  //             stylers: [{color: '#6b9a76'}]
+  //           },
+  //           {
+  //             featureType: 'road',
+  //             elementType: 'geometry',
+  //             stylers: [{color: '#38414e'}]
+  //           },
+  //           {
+  //             featureType: 'road',
+  //             elementType: 'geometry.stroke',
+  //             stylers: [{color: '#212a37'}]
+  //           },
+  //           {
+  //             featureType: 'road',
+  //             elementType: 'labels.text.fill',
+  //             stylers: [{color: '#9ca5b3'}]
+  //           },
+  //           {
+  //             featureType: 'road.highway',
+  //             elementType: 'geometry',
+  //             stylers: [{color: '#746855'}]
+  //           },
+  //           {
+  //             featureType: 'road.highway',
+  //             elementType: 'geometry.stroke',
+  //             stylers: [{color: '#1f2835'}]
+  //           },
+  //           {
+  //             featureType: 'road.highway',
+  //             elementType: 'labels.text.fill',
+  //             stylers: [{color: '#f3d19c'}]
+  //           },
+  //           {
+  //             featureType: 'transit',
+  //             elementType: 'geometry',
+  //             stylers: [{color: '#2f3948'}]
+  //           },
+  //           {
+  //             featureType: 'transit.station',
+  //             elementType: 'labels.text.fill',
+  //             stylers: [{color: '#d59563'}]
+  //           },
+  //           {
+  //             featureType: 'water',
+  //             elementType: 'geometry',
+  //             stylers: [{color: '#17263c'}]
+  //           },
+  //           {
+  //             featureType: 'water',
+  //             elementType: 'labels.text.fill',
+  //             stylers: [{color: '#515c6d'}]
+  //           },
+  //           {
+  //             featureType: 'water',
+  //             elementType: 'labels.text.stroke',
+  //             stylers: [{color: '#17263c'}]
+  //           }
+  //     ]
+  //   });
 
     for (var i = 0; i < iceCreamShop.length; i++) {
       var marker = new google.maps.Marker({
@@ -252,8 +252,8 @@ function initMap(){
         infoBox.close();
       }
 
-      infoBox = new google.maps.InfoWindow();
-      google.maps.event.addDomListener(singleMarker,'click',function(){
+      // infoBox = new google.maps.InfoWindow();
+      // google.maps.event.addDomListener(singleMarker,'click',function(){
 
         infoBox.setContent('<div><h3>'+singleMarker.markerTitle+'</h3></div>');
         infoBox.open(map, singleMarker);
@@ -304,8 +304,8 @@ function initMap(){
     var directionsDisplay;
     function getDirections(){
       // console.log('show me the directions');
-      var directionsService = new google.maps.DirectionsService();
-      directionsDisplay = new google.maps.DirectionsRenderer({
+      // var directionsService = new google.maps.DirectionsService();
+      // directionsDisplay = new google.maps.DirectionsRenderer({
         polylineOptions: {
             strokeOpacity: 0.5,
             strokeColor: 'red',
@@ -340,7 +340,7 @@ function initMap(){
     var options = {
       componentRestrictions: {country: 'nz'}
     };
-    var autoComplete = new google.maps.places.Autocomplete(input, options);
+    // var autoComplete = new google.maps.places.Autocomplete(input, options);
     autoComplete.addListener('place_changed', function(){
       console.log('the place has been chaged');
       var place = autoComplete.getPlace();
@@ -356,4 +356,4 @@ function initMap(){
 
 
 //
-google.maps.event.addDomListener(window,'load',initMap)
+// google.maps.event.addDomListener(window,'load',initMap)
